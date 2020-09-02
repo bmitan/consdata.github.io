@@ -1,4 +1,4 @@
-fetch("/json/posts.json")
+fetch(document["posts_url"])
     .then(response => response.json())
     .then(store => {
         (function () {

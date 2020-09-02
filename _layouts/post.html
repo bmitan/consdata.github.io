@@ -80,7 +80,7 @@ layout: default
     </article>
 </div>
 <script>
-    fetch("/json/posts.json")
+    fetch("{{"/json/posts.json" | relative_url }}")
         .then(response => response.json())
         .then(store => {
             function displayResults(results) {

@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: " en" }}">
-<script src="/js/lunr.min.js"></script>
-{%- include head.html -%}
-
 <body>
-
-{%- include header.html -%}
+<script>
+    document["posts_url"] = "{{ "/json/posts.json" | relative_url }}";
+</script>
+{%- include assets.html -%}
 {%- include navbar.html -%}
 
 <main class="page-content" aria-label="Content">
@@ -15,4 +12,4 @@
 {%- include footer.html -%}
 
 </body>
-</html>
+

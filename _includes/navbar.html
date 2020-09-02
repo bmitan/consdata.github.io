@@ -6,7 +6,7 @@
                     {% assign posts = site.posts %}
                     {% assign grouptag =  posts | map: 'tags' | join: ','  | downcase | split: ','  | group_by: tag | sort: 'size' | reverse %}
                     {% for tag in grouptag | limit: 5 %}
-                        <a href="/search.html?query={{tag.name}}">{{tag.name | capitalize}}</a>
+                        <a href="{{ "/search.html?query=" | append: tag.name | relative_url }}">{{tag.name | capitalize}}</a>
                     {% endfor %}
                 </div>
                 {% include search-component-desktop.html %}
@@ -22,7 +22,7 @@
                 {% assign posts = site.posts %}
                 {% assign grouptag =  posts | map: 'tags' | join: ','  | downcase | split: ','  | group_by: tag | sort: 'size' | reverse %}
                 {% for tag in grouptag | limit: 5 %}
-                <a href="/search.html?query={{tag.name}}">{{tag.name | capitalize}}</a>
+                <a href="{{ "/search.html?query=" | append: tag.name | relative_url }}">{{tag.name | capitalize}}</a>
                 {% endfor %}
             </div>
             <a href="https://app2.salesmanago.pl/api/popup/e7yrrpjmxbm7bahc/Zapisz_sie_na_newsletter.htm" class="newsletter-link">

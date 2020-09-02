@@ -1,0 +1,21 @@
+---
+layout: none
+---
+{% assign posts = site.posts | where_exp: "post", "post.published == true" | sort: "date" %}
+{
+{% for post in posts %}
+  "{{ post.url | relative_url }}": {
+    "title": "{{ post.title }}",
+    "meta": [
+        { "name": "author", "content": "{{post.author | xml_escape}}"},
+        { "name": "description", "content": "{{post.description | xml_escape}}" },
+        { "property": "og:title", "{{post.title | xml_escape}}"},
+        { "property": "og:description", "content": "{{post.description | xml_escape}}"}
+        ]
+  },
+{% endfor %}
+  "404.html": {
+    "title": "Not found",
+    "meta": []
+  }
+}
